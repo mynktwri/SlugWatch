@@ -38,6 +38,11 @@ with open("AllClasses.csv", "w") as csv:
 
 
             csv.write(','.join(str(v) for v in list_of_rows) + "\n")
+            if len(list_of_rows) > 13:
+                extralen = len(list_of_rows) - 13
+                for t in range(1, extralen):
+                    list_of_rows[0] = list_of_rows[0] + list_of_rows[t]
+                    list_of_rows.remove(list_of_rows[t])
         try:
             if count > 0:
                 driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div[1]/a[2]").click()

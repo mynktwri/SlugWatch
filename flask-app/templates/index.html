@@ -1,5 +1,19 @@
 <!doctype html>
 <html>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDZX2Xy2h-9DwDLBgdn4_Qwh6CnSIem4_c",
+    authDomain: "cruzhacks2019-21a50.firebaseapp.com",
+    databaseURL: "https://cruzhacks2019-21a50.firebaseio.com",
+    projectId: "cruzhacks2019-21a50",
+    storageBucket: "cruzhacks2019-21a50.appspot.com",
+    messagingSenderId: "1030150458202"
+  };
+  firebase.initializeApp(config);
+</script>
 <head>
   <title>Datastore and Firebase Auth Example</title>
   <script src="{{ url_for('static', filename='script.js') }}"></script>

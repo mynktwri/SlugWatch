@@ -1,5 +1,4 @@
 import os, sys
-import element_utils as eu
 from lxml import html
 import requests
 from bs4 import BeautifulSoup
@@ -31,6 +30,13 @@ with open("AllClasses.csv", "w") as csv:
             classTitle = soup3.find("h2")
             career, Grading, classNumber, type, credits, ge, status, numSeats, enrollCap, numEnrolled, waitCap, waitList = soup3.findAll("dd")
             list_of_rows.append([classTitle.text, career.text, Grading.text, classNumber.text, type.text, credits.text, ge.text, status.text, numSeats.text, enrollCap.text, numEnrolled.text, waitCap.text, waitList.text])
+            if len(list_of_rows) > 13:
+                extraName = len(list_of_rows) - 13
+                for t in range(1, extraName):
+                    list_of_rows[0] = list_of_rows[0] + list_of_rows[t]
+                    list_of_rows.remove(list_of_rows[t])
+
+
             csv.write(','.join(str(v) for v in list_of_rows) + "\n")
         try:
             if count > 0:
